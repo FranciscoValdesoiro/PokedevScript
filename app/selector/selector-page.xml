@@ -1,0 +1,13 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <StackLayout>
+        <ListPicker items="{{ pickerItems }}" selectedIndex="{{ index }}"
+            loaded="onListPickerLoaded" class="p-15 picker" row="1" />
+        <Label text="message " class="message" textWrap="true" />
+        <Label text="link" textWrap="true" />
+
+        <Button text="Back" tap="changePage" />
+
+        <ListPicker items="{{ pickerItems }}" selectedIndex="{{ index }}"
+            loaded="onListPickerLoaded" class="p-15 picker" row="1" />    </StackLayout>
+
+</Page>

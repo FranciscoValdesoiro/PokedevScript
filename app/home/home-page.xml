@@ -1,13 +1,24 @@
-<Page class="page"
-    navigatingTo="onNavigatingTo"
-    xmlns="http://schemas.nativescript.org/tns.xsd">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo"
+    id="login-background" style="background-image:url('~/images/login-bg.jpg');">
 
-    <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="Home"></Label>
-    </ActionBar>
+    <GridLayout rows="auto, auto, auto" columns="*" class="login-wrap">
 
-    <GridLayout>
-      <Label text="PokeScript" textWrap="true" class="login-logo" />
+        <StackLayout class="logo-wrap" row="0" col="0">
+            <Label text="PokeScript" textWrap="true" class="login-logo" />
+            <Label text="Lleva tu pokedex contigo y hazte con todos" class="login-logo-sub"
+                textWrap="true" />
+        </StackLayout>
+        <Image row="1" col="0" width="200" verticalAlignment="middle" src="https://vignette.wikia.nocookie.net/inciclopedia/images/3/39/Pokeball.PNG/revision/latest?cb=20131217100606" />
+
+        <StackLayout row="2" col="0" class="login-wrapper">
+            <TextField hint="username" />
+            <StackLayout class="hr-light m-b-10" android:visibility="collapsed" />
+            <TextField hint="password" secure="true" />
+            <StackLayout class="hr-light m-b-10" android:visibility="collapsed" />
+            <Button text="Log In" tap="goToSelector" class="btn btnLogin"/>
+            <Button text="Sign in" class="btn btnSignin" tap="" />
+        </StackLayout>
 
     </GridLayout>
+
 </Page>

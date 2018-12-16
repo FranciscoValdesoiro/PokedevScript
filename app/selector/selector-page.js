@@ -1,25 +1,32 @@
 var frameModule = require("tns-core-modules/ui/frame");
 const ListPicker = require("tns-core-modules/ui/list-picker").ListPicker;
 const fromObject = require("tns-core-modules/data/observable").fromObject;
-
-var HttpClient = function() {
-  this.get = function(aUrl, aCallback) {
-      var anHttpRequest = new XMLHttpRequest();
-      anHttpRequest.onreadystatechange = function() {
-          if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-            aCallback(anHttpRequest.responseText);
-          }
-
-          anHttpRequest.open( "GET", aUrl, true );
-          anHttpRequest.send( null );
-      }
-    }
+const aUrl = 'https://pokeapi.co/api/v2/pokemon/';
+let resultados = {};
+//
+// var HttpClient = function() {
+//   this.get = function(aUrl, aCallback) {
+//       var anHttpRequest = new XMLHttpRequest();
+//       anHttpRequest.onreadystatechange = function() {
+//           if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+//             aCallback(anHttpRequest.responseText);
+//           };
+//
+//           anHttpRequest.open( "GET", aUrl, true );
+//           anHttpRequest.send( null );
+//           console.log(anHttpRequest);
+//           console.log('cucu');
+//       };
+//     };
+/**
     var theurl='https://pokeapi.co/api/v2/pokemon/';
     var client = new HttpClient();
       client.get(theurl, function(response) {
         var response1 = JSON.parse(response);
-
       });
+      **/
+
+/**
 
 function httpGet(theUrl)
 {
@@ -40,14 +47,36 @@ function httpGetAsync(theUrl, callback)
     xmlHttp.send(null);
 }
 
+results[i].name
+
+**/
 
 function onNavigatingTo(args) {
     var page = args.object;
 
-    const pokemons = httpGet("https://pokeapi.co/api/v2/pokemon/");
+    function peticionAjax(aUrl, callback) {
+        var peticion = new XMLHttpRequest();
+        peticion.open('GET', aUrl);
+        peticion.onreadystatechange = function () {
+            if (this.readyState === 4) {
+              callback(this.responseText);
+            } else {
+              //  funcion cargando
+              console.log('cargando');
+            }
+          };
+        peticion.send();
+    }
 
-    const pokemonList = ["Bulbasaur", "Parasect", "Venonat", "Venomoth", "Diglett",
-        "Dugtrio", "Meowth", "Persian", "Psyduck", "Arcanine", "Poliwrath", "Machoke"];
+    peticionAjax(aUrl, function(data){
+      resultados = JSON.parse(data);
+      console.log("estos son los datos " + resultados);
+      return resultados;
+    });
+
+    const pokemons = resultados;
+    // const pokemonList = resultados;
+    const pokemonList = resultados.results;
 
     const vm = fromObject({
         pickerItems: pokemonList,

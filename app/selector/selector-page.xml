@@ -1,8 +1,19 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
     <StackLayout>
-        <ListPicker items="{{ pickerItems }}" selectedIndex="{{ index }}"
-            loaded="onListPickerLoaded" class="p-15 picker" row="1" />
-        <Label text="message " class="message" textWrap="true" />
+
+        <StackLayout spacing="20" orientation="horizontal">
+          <Image width="50" verticalAlignment="middle" src="https://vignette.wikia.nocookie.net/inciclopedia/images/3/39/Pokeball.PNG/revision/latest?cb=20131217100606" />
+          <ListPicker margin="20" items="{{ pickerItems }}" selectedIndex="{{ index }}"
+            loaded="onListPickerLoaded" class="p-15 picker" row="1"
+            textField="name" valueField="url"/>
+        </StackLayout>
+        <StackLayout orientation="horizontal">
+          <Image width="50" verticalAlignment="middle" src="https://vignette.wikia.nocookie.net/inciclopedia/images/3/39/Pokeball.PNG/revision/latest?cb=20131217100606" />
+          <ListPicker margin="20" items="{{ pickerItems }}" selectedIndex="{{ index }}"
+            loaded="onListPickerLoaded" class="p-15 picker" row="1"
+            textField="name" valueField="url"/>
+        </StackLayout>
+        <Label text="{{ pickerItems.selectedIndex }}" class="message" textWrap="true" />
         <Label text="link" textWrap="true" />
 
         <Button text="Back" tap="changePage" />

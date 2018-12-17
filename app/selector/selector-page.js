@@ -3,53 +3,6 @@ const ListPicker = require("tns-core-modules/ui/list-picker").ListPicker;
 const fromObject = require("tns-core-modules/data/observable").fromObject;
 const aUrl = 'https://pokeapi.co/api/v2/pokemon/';
 let resultados = {};
-//
-// var HttpClient = function() {
-//   this.get = function(aUrl, aCallback) {
-//       var anHttpRequest = new XMLHttpRequest();
-//       anHttpRequest.onreadystatechange = function() {
-//           if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-//             aCallback(anHttpRequest.responseText);
-//           };
-//
-//           anHttpRequest.open( "GET", aUrl, true );
-//           anHttpRequest.send( null );
-//           console.log(anHttpRequest);
-//           console.log('cucu');
-//       };
-//     };
-/**
-    var theurl='https://pokeapi.co/api/v2/pokemon/';
-    var client = new HttpClient();
-      client.get(theurl, function(response) {
-        var response1 = JSON.parse(response);
-      });
-      **/
-
-/**
-
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
-
-function httpGetAsync(theUrl, callback)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
-    }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous
-    xmlHttp.send(null);
-}
-
-results[i].name
-
-**/
 
 function onNavigatingTo(args) {
     var page = args.object;
